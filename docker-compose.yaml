@@ -1,0 +1,15 @@
+---
+version: "3.8"
+services:
+  ablb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ablb
+    restart: unless-stopped
+    ports:
+      - 0.0.0.0:80:80
+      - 0.0.0.0:443:443
+    volumes:
+      - /opt/ablack/etc/letsencrypt/live/ablack94.dev/privkey.pem:/certs/privkey.pem
+      - /opt/ablack/etc/letsencrypt/live/ablack94.dev/fullchain.pem:/certs/fullchain.pem
